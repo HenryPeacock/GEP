@@ -3,6 +3,7 @@ project(PEACOCKENGINE)
 
 add_library(PeacockEngine
 	src/PeacockEngine/dummy.cpp
+	src/PeacockEngine/macros.h
 )
 target_link_libraries(PeacockEngine SDL2 opengl32 glew32)
 
