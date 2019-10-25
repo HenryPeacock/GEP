@@ -1,9 +1,6 @@
 #include "Component.h"
 
-struct Component
+void Component::onDisplay()
 {
-	Component()
-	{
 
-	}
-};
+}

@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 2.6)
 project(PEACOCKENGINE)
 
+include_directories(src)
+
 add_library(PeacockEngine
 	src/PeacockEngine/macros.h
 	src/PeacockEngine/Entity.h
@@ -13,6 +15,7 @@ add_library(PeacockEngine
 	src/PeacockEngine/Component.cpp
 	src/PeacockEngine/Keyboard.cpp
 	src/PeacockEngine/Environment.cpp
+	src/PeacockEngine/PeacockEngine.h
 )
 target_link_libraries(PeacockEngine SDL2 opengl32 glew32)
 

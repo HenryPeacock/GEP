@@ -1,9 +1,9 @@
 #include "Entity.h"
 
-Entity::Entity()
+void Entity::display()
 {
-}
-
-Entity::~Entity()
-{
+	for (size_t i = 0; i < components.size(); i++)
+	{
+		components.at(i)->onDisplay();
+	}
 }
