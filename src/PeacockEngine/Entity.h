@@ -1,6 +1,6 @@
 #pragma once
-#include "Component.h"
 #include "GL/glew.h"
+#include "Component.h"
 #include <glm/glm.hpp>
 #include <SDL2/SDL.h>
 #include <string>
@@ -9,24 +9,29 @@
 #include <iostream>
 #include "macros.h"
 
-
-class Entity
+namespace Peacock
 {
-public:
+	//class Component;
 
-	template <typename T>
-	shared<T> addComponent()
+	class Entity
 	{
-		shared<T> rtn = makesh<T>();
+	public:
 
-		components.push_back(rtn);
+		template <typename T>
+		shared<T> addComponent()
+		{
+			shared<T> rtn = makesh<T>();
 
-		return rtn;
-	}
+			components.push_back(rtn);
 
-	void display();
+			return rtn;
+		}
 
-private:
-	std::vector<shared<Component>> components;
-};
+		void display();
+		void tick();
+
+	private:
+		std::vector<shared<Component>> components;
+	};
+}
 

@@ -1,6 +1,17 @@
 #include "Component.h"
 
-void Component::onDisplay()
+namespace Peacock
 {
+	void Peacock::Component::onInitialize()
+	{
+	}
 
+	void Peacock::Component::onTick()
+	{
+	}
+
+	void Component::onDisplay()
+	{
+
+	}
 }

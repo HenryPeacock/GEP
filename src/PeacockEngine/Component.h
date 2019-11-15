@@ -4,11 +4,15 @@
 #include <memory>
 #include <iostream>
 
-class Component
+namespace Peacock
 {
-public:
-	virtual void onDisplay();
+	class Component
+	{
+	public:
+		virtual void onInitialize();
+		virtual void onTick();
+		virtual void onDisplay();
 
-};
-
+	};
+}
 #endif

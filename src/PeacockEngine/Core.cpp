@@ -1,29 +1,44 @@
 #include "Core.h"
 
-shared<Core> Core::initialize()
+
+namespace Peacock
 {
-	shared<Core> c = makesh<Core>();
-	return c;
-}
 
-shared<Entity> Core::addEntity()
-{
-	shared<Entity> rtn = makesh<Entity>();
-
-	entities.push_back(rtn);
-
-	return rtn;
-}
-
-void Core::run()
-{
-	while (true)
+	shared<Core> Core::initialize()
 	{
-		for (size_t i = 0; i < entities.size(); i++)
+		shared<Core> c = makesh<Core>();
+		return c;
+	}
+
+	shared<Entity> Core::addEntity()
+	{
+		shared<Entity> rtn = makesh<Entity>();
+
+		entities.push_back(rtn);
+
+		return rtn;
+	}
+
+	void Core::run()
+	{
+		while (true)
 		{
-			entities.at(i)->display();
+			// Basically the main game loop
+			for (std::vector<shared<Entity>>::iterator it = entities.begin(); it != entities.end(); it++)
+			{
+				(*it)->tick();
+			}
+
+			for (std::vector<shared<Entity>>::iterator it = entities.begin(); it != entities.end(); it++)
+			{
+				(*it)->display();
+			}
+
+			// Add further stuff
 		}
 	}
+
 }
+
 
 

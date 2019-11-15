@@ -3,15 +3,19 @@
 
 #include <memory>
 #include <iostream>
+#include <list>
 
-class Core
+namespace Peacock
 {
-public:
-	shared<Entity> addEntity();
-	void run();
+	class Core
+	{
+	public:
+		shared<Entity> addEntity();
+		void run();
 
-	static shared<Core> initialize();
+		static shared<Core> initialize();
 
-private:
-	std::vector<shared<Entity>> entities;
-};
+	private:
+		std::vector<shared<Entity>> entities;
+	};
+}

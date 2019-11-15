@@ -11,6 +11,21 @@ class TriangleRenderer : public Component
 	}
 };
 
+using namespace Peacock;
+
+int main()
+{
+	shared<Core> core = Core::initialize();
+
+	shared<Entity> entity = core->addEntity();
+	shared<TriangleRenderer> tr = entity->addComponent<TriangleRenderer>();
+
+	core->run();
+
+	std::cin.get();
+	return 0;
+}
+/* old main
 int main()
 {
 	// Create a window
@@ -180,3 +195,4 @@ int main()
 	std::cin.get();
 	return 0;
 }
+end of old main*/
