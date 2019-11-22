@@ -26,12 +26,15 @@ add_library(PeacockEngine
 	src/PeacockEngine/Core.h
 	src/PeacockEngine/Keyboard.h
 	src/PeacockEngine/Environment.h
+	src/PeacockEngine/PeacockEngine.h
+	src/PeacockEngine/MeshRenderer.h
+
 	src/PeacockEngine/Entity.cpp
 	src/PeacockEngine/Core.cpp
 	src/PeacockEngine/Component.cpp
 	src/PeacockEngine/Keyboard.cpp
 	src/PeacockEngine/Environment.cpp
-	src/PeacockEngine/PeacockEngine.h
+	src/PeacockEngine/MeshRenderer.cpp
 )
 target_link_libraries(PeacockEngine SDL2 rend)
 

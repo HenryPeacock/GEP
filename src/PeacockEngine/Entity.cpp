@@ -1,12 +1,17 @@
 #include "Entity.h"
+//#include "Component.h"
 
 namespace Peacock
 {
+	shared<Core> Entity::getCore()
+	{
+		return shared<Core>();
+	}
 	void Entity::display()
 	{
-		for (size_t i = 0; i < components.size(); i++)
+		for (std::vector<shared<Component>>::iterator it = components.begin(); it != components.end(); it++)
 		{
-			components.at(i)->onDisplay();
+			(*it)->onDisplay();
 		}
 	}
 	void Entity::tick()

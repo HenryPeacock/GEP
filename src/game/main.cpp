@@ -3,28 +3,23 @@
 #include <iostream>
 #include <memory>
 
-class TriangleRenderer : public Component
-{
-	void onDisplay()
-	{
-		std::cout << "Triangle Boi" << std::endl;
-	}
-};
+
 
 using namespace Peacock;
 
 int main()
 {
 	shared<Core> core = Core::initialize();
-
 	shared<Entity> entity = core->addEntity();
-	shared<TriangleRenderer> tr = entity->addComponent<TriangleRenderer>();
+	shared<MeshRenderer> component = entity->addComponent<MeshRenderer>();
 
 	core->run();
 
 	std::cin.get();
 	return 0;
 }
+
+
 /* old main
 int main()
 {

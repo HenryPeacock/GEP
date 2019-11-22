@@ -1,4 +1,5 @@
 #include "Component.h"
+#include "Entity.h"
 
 namespace Peacock
 {
@@ -13,5 +14,9 @@ namespace Peacock
 	void Component::onDisplay()
 	{
 
+	}
+	shared<Entity> Component::getEntity()
+	{
+		return entity.lock();
 	}
 }
