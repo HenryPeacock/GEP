@@ -1,3 +1,4 @@
+#pragma once
 #include <sr1/memory>
 
 namespace rend

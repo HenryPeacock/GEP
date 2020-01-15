@@ -19,4 +19,10 @@ namespace Peacock
 	{
 		return entity.lock();
 	}
+
+	shared<Core> Component::getCore()
+	{
+		return getEntity()->getCore();
+	}
+
 }

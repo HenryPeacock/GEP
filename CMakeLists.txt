@@ -28,6 +28,16 @@ add_library(PeacockEngine
 	src/PeacockEngine/Environment.h
 	src/PeacockEngine/PeacockEngine.h
 	src/PeacockEngine/MeshRenderer.h
+	src/PeacockEngine/Transform.h
+	src/PeacockEngine/Camera.h
+	src/PeacockEngine/Resource.h
+	src/PeacockEngine/Resources.h
+	src/PeacockEngine/PMesh.h
+	src/PeacockEngine/Material.h
+	src/PeacockEngine/MaterialAttribute.h
+	src/PeacockEngine/Sound.h
+	src/PeacockEngine/SoundSource.h
+	src/PeacockEngine/SoundManager.h
 
 	src/PeacockEngine/Entity.cpp
 	src/PeacockEngine/Core.cpp
@@ -35,6 +45,16 @@ add_library(PeacockEngine
 	src/PeacockEngine/Keyboard.cpp
 	src/PeacockEngine/Environment.cpp
 	src/PeacockEngine/MeshRenderer.cpp
+	src/PeacockEngine/Transform.cpp
+	src/PeacockEngine/Camera.cpp
+	src/PeacockEngine/Resource.cpp
+	src/PeacockEngine/Resources.cpp
+	src/PeacockEngine/PMesh.cpp
+	src/PeacockEngine/Material.cpp
+	src/PeacockEngine/MaterialAttribute.cpp
+	src/PeacockEngine/Sound.cpp
+	src/PeacockEngine/SoundSource.cpp
+	src/PeacockEngine/SoundManager.cpp
 )
 target_link_libraries(PeacockEngine SDL2 rend)
 

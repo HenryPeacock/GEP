@@ -10,8 +10,13 @@ using namespace Peacock;
 int main()
 {
 	shared<Core> core = Core::initialize();
+
 	shared<Entity> entity = core->addEntity();
 	shared<MeshRenderer> component = entity->addComponent<MeshRenderer>();
+
+
+
+
 
 	core->run();
 

@@ -7,5 +7,9 @@
 #include "Component.h"
 #include "macros.h"
 #include "MeshRenderer.h"
+#include "Resources.h"
+#include "SoundSource.h"
+#include "SoundManager.h"
+#include "PMesh.h"
 
 #endif

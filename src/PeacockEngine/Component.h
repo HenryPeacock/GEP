@@ -11,7 +11,7 @@
 namespace Peacock
 {
 	class Entity;
-
+	class Core;
 	class Component
 	{
 	public:
@@ -19,8 +19,10 @@ namespace Peacock
 		virtual void onTick();
 		virtual void onDisplay();
 		shared<Entity> getEntity();
+		shared<Core> getCore();
 
 	private:
+		friend class Entity;
 		weak<Entity> entity;
 	};
 }
