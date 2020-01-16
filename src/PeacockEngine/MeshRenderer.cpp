@@ -1,54 +1,41 @@
 #include "MeshRenderer.h"
 #include "PMesh.h"
+#include <fstream>
 
-
-const char* src =
-	"#ifdef VERTEX                                 \n" \
-	"                                              \n" \
-	"attribute vec3 a_Position;                    \n" \
-	"attribute vec2 a_TexCoord;                    \n" \
-	"attribute vec3 a_Normal;                      \n" \
-	"                                              \n" \
-	"uniform mat4 u_Projection;                    \n" \
-	"uniform mat4 u_Model;                         \n" \
-	"                                              \n" \
-	"varying vec3 v_Normal;                        \n" \
-	"varying vec2 v_TexCoord;                      \n" \
-	"                                              \n" \
-	"void main()                                   \n" \
-	"{                                             \n" \
-	"  gl_Position = u_Projection *                \n" \
-	"    u_Model * vec4(a_Position, 1);            \n" \
-	"                                              \n" \
-	"  v_Normal = a_Normal;                        \n" \
-	"  v_TexCoord = a_TexCoord;                    \n" \
-	"}                                             \n" \
-	"                                              \n" \
-	"#endif                                        \n" \
-	"#ifdef FRAGMENT                               \n" \
-	"                                              \n" \
-	"varying vec3 v_Normal;                        \n" \
-	"varying vec2 v_TexCoord;                      \n" \
-	"                                              \n" \
-	"void main()                                   \n" \
-	"{                                             \n" \
-	"  gl_FragColor = vec4(v_TexCoord, 0, 1);      \n" \
-	"  gl_FragColor.z = v_Normal.x;                \n" \
-	"}                                             \n" \
-	"                                              \n" \
-	"#endif                                        \n";
-
-
-void MeshRenderer::OnInitialize()
+void MeshRenderer::OnInitialize(std::string _path)
 {
+	// Create the shader
 	m_shader = GetCore()->m_context->createShader();
-	m_shader->parse(src);
+
+	// Open the shader from file
+	std::cout << "Opening shader: " << _path << std::endl;
+	std::ifstream f(_path.c_str());
+
+	// Make sure the file is open
+	if (!f.is_open())
+	{
+		throw rend::Exception("Failed to open shader");
+	}
+
+	std::string data;
+	std::string line;
+
+	// Save the file
+	while (!f.eof())
+	{
+		std::getline(f, line);
+		data += line + "\n";
+	}
+
+	// Parse the file data
+	m_shader->parse(data);
 }
 
 void MeshRenderer::OnDisplay()
 {
-	std::cout << "Renderer::onDisplay" << std::endl;
-	//shared<Entity> ent = getEntity()->getCore()->addEntity();
+
+	//std::cout << "Renderer::onDisplay" << std::endl;
+
 	m_shader->setMesh(m_mesh->m_mesh);
 	m_shader->setUniform("u_Model", rend::mat4(1.0f));
 	m_shader->setUniform("u_Model", rend::translate(rend::mat4(1.0f), rend::vec3(0, 0, -10)));

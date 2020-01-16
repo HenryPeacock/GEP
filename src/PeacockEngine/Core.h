@@ -25,6 +25,7 @@ public:
 private:
 	friend class MeshRenderer;
 	friend class PMesh;
+	friend class Material;
 
 
 	bool m_running = true;

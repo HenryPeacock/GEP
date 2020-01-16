@@ -6,7 +6,6 @@
 #include "rend/Context.h"
 #include "macros.h"
 
-// ToDo: Move others outside of namespace
 
 class Resources;
 class Core;

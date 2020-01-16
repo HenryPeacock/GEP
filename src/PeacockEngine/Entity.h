@@ -29,7 +29,7 @@ public:
 	{
 		shared<T> rtn = makesh<T>();
 		rtn->m_entity = m_self;
-		rtn->OnInitialize(A a);
+		rtn->OnInitialize(a);
 		m_components.push_back(rtn);
 		return rtn;
 	}

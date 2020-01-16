@@ -1,3 +1,4 @@
+#pragma once
 #include "mathutil.h"
 #include "TextureAdapter.h"
 

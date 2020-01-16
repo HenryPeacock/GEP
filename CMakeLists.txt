@@ -23,7 +23,7 @@ add_library(rend
   src/rend/Util.cpp
 )
 if(MSVC)
-  target_link_libraries(rend glew32 opengl32)
+  target_link_libraries(rend glew32 opengl32 openal32)
 else()
   target_link_libraries(rend GLEW GL)
 endif()
@@ -47,6 +47,7 @@ add_library(PeacockEngine
 	src/PeacockEngine/Sound.h
 	src/PeacockEngine/SoundSource.h
 	src/PeacockEngine/SoundManager.h
+	src/PeacockEngine/stb_vorbis.h
 
 	src/PeacockEngine/Entity.cpp
 	src/PeacockEngine/Core.cpp

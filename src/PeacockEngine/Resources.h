@@ -2,7 +2,7 @@
 #ifndef RESOURCES_H
 #define RESOURCES_H
 #include <list>
-#include "PeacockEngine/Resource.h"
+#include "Resource.h"
 #include "rend/Context.h"
 
 

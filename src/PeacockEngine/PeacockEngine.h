@@ -11,6 +11,7 @@
 #include "SoundSource.h"
 #include "SoundManager.h"
 #include "PMesh.h"
+#include "Material.h"
 
 
 #endif

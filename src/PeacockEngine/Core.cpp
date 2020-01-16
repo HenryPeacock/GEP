@@ -31,6 +31,10 @@ shared<Core> Core::Initialize()
 	rtn->m_resources = makesh<Resources>();
 	rtn->m_resources->m_core = rtn;
 
+	rtn->m_soundManager = makesh<SoundManager>();
+	rtn->m_soundManager->Initialize();
+	rtn->m_soundManager->m_core = rtn;
+
 	return rtn;
 }
 

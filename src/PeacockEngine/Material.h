@@ -2,15 +2,20 @@
 #ifndef MATERIAL_H
 #define MATERIAL_H
 
-#include "Core.h"
+#include <vector>
+#include "rend/Shader.h"
+#include "rend/Texture.h"
+#include "MaterialAttribute.h"
+#include "Resource.h"
+#include "macros.h"
 
-
-class Material
+class Material : public Resource
 {
 public:
+	void OnLoad(std::string _path);
 
 private:
-
+	shared<MaterialAttribute> m_materialAttributes;
 };
 
 
