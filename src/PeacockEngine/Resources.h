@@ -7,24 +7,35 @@
 
 
 
-namespace Peacock
+
+class Core;
+
+class Resources
 {
-	class Core;
-
-	class Resources
+public:
+	template <typename T>
+	shared<T> Load(std::string _path)
 	{
-	public:
-		template <typename T>
-		shared<T> Load(std::string _path)
+		for (std::list<shared<Resource>>::iterator it = m_resources.begin();
+			it != m_resources.end(); it++)
 		{
-
+			if ((*it)->GetPath() == _path)
+			{
+				return std::dynamic_pointer_cast<T>(*it);
+			}
 		}
-	private:
-		friend class Core;
+		shared<T> rtn = makesh<T>();
+		rtn->m_core = m_core;
+		rtn->OnLoad(_path);
+		m_resources.push_back(rtn);
 
-		weak<Core> m_core;
-		std::list<shared<Resource>> m_resources;
-	};
-}
+		return rtn;
+	}
+private:
+	friend class Core;
+
+	weak<Core> m_core;
+	std::list<shared<Resource>> m_resources;
+};
 
 #endif

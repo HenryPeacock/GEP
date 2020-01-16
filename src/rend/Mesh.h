@@ -3,6 +3,8 @@
 
 #include <string>
 
+#include "PeacockEngine\Resource.h"
+
 namespace rend
 {
 
@@ -23,7 +25,7 @@ struct TextureData
   std::sr1::shared_ptr<TextureAdapter> texture;
 };
 
-struct Mesh
+struct Mesh : public Resource
 {
   void setBuffer(const std::string& name, const std::sr1::shared_ptr<Buffer>& buffer);
   void setTexture(const std::string& name, const std::sr1::shared_ptr<TextureAdapter>& texture);

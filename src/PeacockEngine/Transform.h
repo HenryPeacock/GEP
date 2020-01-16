@@ -4,15 +4,14 @@
 
 #include "Core.h"
 
-namespace Peacock
+
+class Transform
 {
-	class Transform
-	{
-	public:
+public:
 
-	private:
+private:
 
-	};
-}
+};
+
 
 #endif

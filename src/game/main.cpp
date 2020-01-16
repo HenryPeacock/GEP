@@ -5,20 +5,19 @@
 
 
 
-using namespace Peacock;
 
 int main()
 {
-	shared<Core> core = Core::initialize();
+	shared<Core> core = core->Initialize();
 
-	shared<Entity> entity = core->addEntity();
-	shared<MeshRenderer> component = entity->addComponent<MeshRenderer>();
+	shared<Entity> entity = core->AddEntity();
+	shared<MeshRenderer> meshRenderer = entity->AddComponent<MeshRenderer>();
+
+	shared<PMesh> mesh = core->GetResources()->Load<PMesh>("../resources/model/curuthers");
+	meshRenderer->SetMesh(mesh);
 
 
-
-
-
-	core->run();
+	core->Run();
 
 	std::cin.get();
 	return 0;

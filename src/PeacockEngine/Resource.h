@@ -9,25 +9,22 @@
 // ToDo: Move others outside of namespace
 
 class Resources;
+class Core;
 
-namespace Peacock
+class Resource : public std::sr1::noncopyable
 {
-	class Core;
+public:
+	std::string GetPath() { return m_path; }
+	void SetPath(std::string _path) { m_path = _path; }
+	virtual ~Resource();
 
-	class Resource : public std::sr1::noncopyable
-	{
-	public:
-		std::string GetPath() { return m_path; }
-		void SetPath(std::string _path) { m_path = _path; }
-		virtual ~Resource();
+	shared<Core> GetCore();
+protected:
+	friend class Resources;
 
-		shared<Core> getCore();
-	protected:
-		friend class Resources;
+	std::string m_path;
+	weak<Core> m_core;
+};
 
-		std::string m_path;
-		weak<Core> m_core;
-	};
-}
 
 #endif

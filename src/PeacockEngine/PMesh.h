@@ -2,20 +2,21 @@
 #ifndef P_MESH_H
 #define P_MESH_H
 
-#include "Core.h"
+#include "Resource.h"
+#include <rend/rend.h>
+#include <string>
 
-namespace Peacock
+
+class PMesh : public Resource
 {
-	class PMesh
-	{
-	public:
-		void onLoad(std::string _path);
+public:
+	void OnLoad(std::string _path);
 
-	private:
-		friend class MeshRenderer;
-		std::string m_path;
-		shared<rend::Mesh> m_mesh;
-	};
-}
+private:
+	friend class MeshRenderer;
+	std::string m_path;
+	shared<rend::Mesh> m_mesh;
+};
+
 
 #endif

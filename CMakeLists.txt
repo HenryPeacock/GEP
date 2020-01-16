@@ -4,6 +4,15 @@ project(PEACOCKENGINE)
 include_directories(src)
 
 add_library(rend
+  src/rend/Exception.h
+  src/rend/Context.h
+  src/rend/Texture.h
+  src/rend/RenderTexture.h
+  src/rend/Shader.h
+  src/rend/Buffer.h
+  src/rend/Mesh.h
+  src/rend/Util.h
+
   src/rend/Exception.cpp
   src/rend/Context.cpp
   src/rend/Texture.cpp

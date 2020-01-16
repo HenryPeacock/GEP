@@ -3,27 +3,24 @@
 #define PEACOCKENGINE_COMPONENT_H
 
 #include <memory>
-#include <iostream>
 #include "macros.h"
 
+class Entity;
+class Core;
 
-
-namespace Peacock
+class Component
 {
-	class Entity;
-	class Core;
-	class Component
-	{
-	public:
-		virtual void onInitialize();
-		virtual void onTick();
-		virtual void onDisplay();
-		shared<Entity> getEntity();
-		shared<Core> getCore();
+public:
+	virtual void OnInitialize();
+	virtual void OnTick();
+	virtual void OnDisplay();
 
-	private:
-		friend class Entity;
-		weak<Entity> entity;
-	};
-}
+	shared<Entity> GetEntity();
+	shared<Core> GetCore();
+
+private:
+	friend class Entity;
+	weak<Entity> m_entity;
+};
+
 #endif                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   

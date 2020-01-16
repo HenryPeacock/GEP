@@ -4,15 +4,14 @@
 
 #include "Core.h"
 
-namespace Peacock
+
+class SoundSource
 {
-	class SoundSource
-	{
-	public:
+public:
 
-	private:
+private:
 
-	};
-}
+};
+
 
 #endif

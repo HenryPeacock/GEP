@@ -1,9 +1,9 @@
 #include "Resource.h"
 
 
-Peacock::Resource::~Resource() { }
+Resource::~Resource() { }
 
-shared<Core> Peacock::Resource::getCore()
+shared<Core> Resource::GetCore()
 {
 	return m_core.lock();
 }

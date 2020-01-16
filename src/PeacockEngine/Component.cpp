@@ -1,28 +1,25 @@
 #include "Component.h"
 #include "Entity.h"
 
-namespace Peacock
+
+void Component::OnInitialize()
 {
-	void Peacock::Component::onInitialize()
-	{
-	}
+}
 
-	void Peacock::Component::onTick()
-	{
-	}
+void Component::OnTick()
+{
+}
 
-	void Component::onDisplay()
-	{
+void Component::OnDisplay()
+{
 
-	}
-	shared<Entity> Component::getEntity()
-	{
-		return entity.lock();
-	}
+}
+shared<Entity> Component::GetEntity()
+{
+	return m_entity.lock();
+}
 
-	shared<Core> Component::getCore()
-	{
-		return getEntity()->getCore();
-	}
-
+shared<Core> Component::GetCore()
+{
+	return GetEntity()->GetCore();
 }

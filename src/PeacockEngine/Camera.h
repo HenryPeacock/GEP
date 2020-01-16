@@ -2,15 +2,13 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
-namespace Peacock
+
+class Camera
 {
-	class Camera
-	{
-	public:
+public:
 
-	private:
+private:
 
-	};
-}
+};
 
 #endif

@@ -4,15 +4,14 @@
 
 #include "Core.h"
 
-namespace Peacock
+
+class SoundManager
 {
-	class SoundManager
-	{
-	public:
+public:
 
-	private:
+private:
 
-	};
-}
+};
+
 
 #endif

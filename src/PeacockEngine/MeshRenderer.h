@@ -7,18 +7,22 @@
 #include "Entity.h"
 #include "rend/rend.h"
 
-namespace Peacock
-{
-	class MeshRenderer : public Component
-	{
-	public:
-		void onInitialize();
-		void onDisplay();
-	private:
-		shared<rend::Shader> m_shader;
 
-	};
-}
+class MeshRenderer : public Component
+{
+public:
+	void OnInitialize();
+	void OnDisplay();
+
+	shared<PMesh> GetMesh() { return m_mesh; }
+	void SetMesh(shared<PMesh> _mesh) { m_mesh = _mesh; }
+private:
+	shared<PMesh> m_mesh;
+
+	shared<rend::Shader> m_shader;
+
+};
+
 
 
 #endif

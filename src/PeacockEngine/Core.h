@@ -2,44 +2,41 @@
 #ifndef CORE_H
 #define CORE_H
 
-#include "Entity.h"
+#include <vector>
 #include "macros.h"
+#include <SDL2/SDL.h>
 #include "rend/rend.h"
 
-#include <memory>
-#include <iostream>
-#include <list>
 
-
+class MeshRenderer;
+class Entity;
+class PMesh;
 class SoundManager;
+class Resources;
 
-namespace Peacock
+class Core
 {
-	class Resources;
+public:
+	shared<Entity> AddEntity();
+	void Run();
 
-	class Core
-	{
-	public:
-		shared<Entity> addEntity();
-		void run();
-
-		static shared<Core> initialize(); 
-
-	private:
-		friend class MeshRenderer;
-		friend class PMesh;
+	shared<Core> Initialize(); 
+	shared<Resources> GetResources() { return m_resources; }
+private:
+	friend class MeshRenderer;
+	friend class PMesh;
 
 
-		bool running = true;
-		weak<Core> self;
+	bool m_running = true;
+	weak<Core> m_self;
 
-		SDL_Window* window;
+	SDL_Window* m_window;
 
-		std::vector<shared<Entity>> entities;
-		shared<Resources> m_resources;
-		shared<SoundManager> m_soundManager;
-		shared<rend::Context> m_context;
-	};
-}
+	std::vector<shared<Entity>> m_entities;
+	shared<Resources> m_resources;
+	shared<SoundManager> m_soundManager;
+	shared<rend::Context> m_context;
+};
+
 
 #endif

@@ -4,15 +4,14 @@
 
 #include "Core.h"
 
-namespace Peacock
+
+class MaterialAttribute
 {
-	class MaterialAttribute
-	{
-	public:
+public:
 
-	private:
+private:
 
-	};
-}
+};
+
 
 #endif
