@@ -1,4 +1,5 @@
 #include "MeshRenderer.h"
+#include "PMesh.h"
 
 
 const char* src =
@@ -40,12 +41,7 @@ const char* src =
 
 void MeshRenderer::OnInitialize()
 {
-	// ToDo: Fix this exception
-	//m_shader = GetCore()->m_context->createShader();
-	shared<Core> a = GetCore();
-	shared<rend::Context> b = a->m_context;
-	m_shader = b->createShader();
-
+	m_shader = GetCore()->m_context->createShader();
 	m_shader->parse(src);
 }
 
@@ -53,5 +49,11 @@ void MeshRenderer::OnDisplay()
 {
 	std::cout << "Renderer::onDisplay" << std::endl;
 	//shared<Entity> ent = getEntity()->getCore()->addEntity();
+	m_shader->setMesh(m_mesh->m_mesh);
+	m_shader->setUniform("u_Model", rend::mat4(1.0f));
+	m_shader->setUniform("u_Model", rend::translate(rend::mat4(1.0f), rend::vec3(0, 0, -10)));
+	m_shader->setUniform("u_Projection", rend::perspective(rend::radians(45.0f), 1.0f, 0.1f, 100.0f));
+	m_shader->render();
 }
+
 

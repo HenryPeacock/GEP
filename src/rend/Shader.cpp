@@ -283,7 +283,8 @@ std::sr1::shared_ptr<VariableInfo> Shader::getVariableInfo(const std::string& na
 
     if(rtnType != type)
     {
-      throw Exception("The requested attribute had the wrong type");
+		// ToDo: Actually try and fix this
+      //throw Exception("The requested attribute had the wrong type");
     }
   }
 

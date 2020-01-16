@@ -47,13 +47,27 @@ shared<Entity> Core::AddEntity()
 
 void Core::Run()
 {
+	m_running = true;
+	SDL_Event e = { 0 };
+
 	while (m_running)
 	{
+		while (SDL_PollEvent(&e) != 0)
+		{
+			if (e.type == SDL_QUIT)
+			{
+				m_running = false;
+			}
+		}
+
 		// Basically the main game loop
 		for (std::vector<shared<Entity>>::iterator it = m_entities.begin(); it != m_entities.end(); it++)
 		{
 			(*it)->Tick();
 		}
+
+		glClearColor(0.39f, 0.58f, 0.93f, 1.0f);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		for (std::vector<shared<Entity>>::iterator it = m_entities.begin(); it != m_entities.end(); it++)
 		{
@@ -61,8 +75,10 @@ void Core::Run()
 		}
 
 		// Add further stuff
+		SDL_GL_SwapWindow(m_window);
 	}
 }
+
 
 
 
