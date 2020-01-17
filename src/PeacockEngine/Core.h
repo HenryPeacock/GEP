@@ -16,32 +16,37 @@ class Resources;
 class Keyboard;
 class Camera;
 
+/**
+ * The core class is the main framework/ structure of the engine. It provides the setup initialization,
+as well as containing the main "game loop"
+ */
 class Core
 {
 public:
-	shared<Entity> AddEntity();
-	void Run();
+	shared<Entity> AddEntity(); ///< Add a new entity, called when an entity is created
+	void Run(); ///< Function containing the main game loop
 
-	shared<Core> Initialize(); 
+	shared<Core> Initialize(); ///< Initial setup of core and therefore engine 
 	shared<Resources> GetResources() { return m_resources; }
-	void Exit() { m_running = false; }
+	void Exit() { m_running = false; } ///< Simple function to exit the program
 private:
 	friend class MeshRenderer;
 	friend class PMesh;
 	friend class Material;
 
 
-	bool m_running = true;
-	weak<Core> m_self;
+	bool m_running = true; ///< running as a bool for the main game loop
 
-	SDL_Window* m_window;
+	weak<Core> m_self; ///< pointer to self
 
-	std::vector<shared<Entity>> m_entities;
-	shared<Resources> m_resources;
-	shared<SoundManager> m_soundManager;
-	shared<Keyboard> m_keyboard;
-	shared<rend::Context> m_context;
-	shared<Camera> m_camera;
+	SDL_Window* m_window; ///< the window 
+
+	std::vector<shared<Entity>> m_entities; ///< Vector containing all entities
+	shared<Resources> m_resources; ///< pointer to resources
+	shared<SoundManager> m_soundManager; ///< pointer to sound manager
+	shared<Keyboard> m_keyboard; ///< pointer to keyboard
+	shared<rend::Context> m_context; ///< pointer to rend context
+	shared<Camera> m_camera; ///< pointer to camera
 	float m_move = -10.0f;
 };
 

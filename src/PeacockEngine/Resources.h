@@ -10,11 +10,14 @@
 
 class Core;
 
+/**
+ * Manager of individual resources
+ */
 class Resources
 {
 public:
 	template <typename T>
-	shared<T> Load(std::string _path)
+	shared<T> Load(std::string _path) ///< Template function to load resources from files
 	{
 		for (std::list<shared<Resource>>::iterator it = m_resources.begin();
 			it != m_resources.end(); it++)
@@ -34,8 +37,8 @@ public:
 private:
 	friend class Core;
 
-	weak<Core> m_core;
-	std::list<shared<Resource>> m_resources;
+	weak<Core> m_core; ///< Pointer to core
+	std::list<shared<Resource>> m_resources; ///< list of "resource"s
 };
 
 #endif

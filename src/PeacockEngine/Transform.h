@@ -4,7 +4,9 @@
 
 #include "Core.h"
 
-
+/**
+ * Class to contain the details of an objects transform
+ */
 class Transform
 {
 public:

@@ -2,6 +2,7 @@
 #ifndef PEACOCKENGINE_PEACOCKENGINE_H
 #define PEACOCKENGINE_PEACOCKENGINE_H
 
+// Includes to link engine with game
 #include "Core.h"
 #include "Entity.h"
 #include "Component.h"

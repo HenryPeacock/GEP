@@ -45,6 +45,7 @@ void Keyboard::OnTick()
 
 bool Keyboard::GetKey(SDL_Keycode _keycode)
 {
+	// Iterates through the list of keys
 	for (auto it = m_keys.begin(); it != m_keys.end(); it++)
 	{
 		if ((*it) == _keycode)
@@ -57,6 +58,7 @@ bool Keyboard::GetKey(SDL_Keycode _keycode)
 
 bool Keyboard::GetKeyPressed(SDL_Keycode _keycode)
 {
+	// Iterates through the list of keys to check if they're pressed
 	for (auto it = m_keysPressed.begin(); it != m_keysPressed.end(); it++)
 	{
 		if ((*it) == _keycode)
@@ -69,6 +71,7 @@ bool Keyboard::GetKeyPressed(SDL_Keycode _keycode)
 
 bool Keyboard::GetKeyReleased(SDL_Keycode _keycode)
 {
+	// Iterates through the list of keys to check if they're released
 	for (auto it = m_keysReleased.begin(); it != m_keysReleased.end(); it++)
 	{
 		if ((*it) == _keycode)

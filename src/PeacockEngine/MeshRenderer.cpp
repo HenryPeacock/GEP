@@ -43,7 +43,7 @@ void MeshRenderer::OnDisplay()
 	m_shader->setUniform("u_Model", rend::translate(rend::mat4(1.0f), rend::vec3(0, 0, GetCore()->m_move)));
 	m_shader->setUniform("u_View", GetCore()->m_camera->GetView());
 	m_shader->setUniform("u_Projection", rend::perspective(rend::radians(45.0f), 1.0f, 0.1f, 100.0f));
-	m_shader->setUniform("in_Texture", m_material->TId);
+	//m_shader->setUniform("in_Texture", m_material->TId);
 	m_shader->render();
 }
 

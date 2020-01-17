@@ -5,7 +5,9 @@
 #include "rend/Texture.h"
 #include "macros.h"
 
-
+/**
+ * Class containing the attributes which a material will need
+ */
 class MaterialAttribute
 {
 public:
@@ -13,10 +15,10 @@ public:
 private:
 	friend class Material;
 
-	std::string m_name;
-	int m_type;
-	float m_value;
-	weak<rend::Texture> m_texture;
+	std::string m_name; ///< Name
+	int m_type; ///< Type
+	float m_value; ///< Value
+	weak<rend::Texture> m_texture; ///< Pointer to texture
 };
 
 #endif

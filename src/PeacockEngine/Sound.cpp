@@ -29,10 +29,9 @@ void Sound::Load_ogg(const std::string & _fileName, std::vector<char>& _buffer, 
     throw std::exception();
   }
 
-  // Record the sample rate required by OpenAL
   _freq = sampleRate;
 
-  // Record the format required by OpenAL
+
   if (channels == 1)
   {
     _format = AL_FORMAT_MONO16;
@@ -41,16 +40,14 @@ void Sound::Load_ogg(const std::string & _fileName, std::vector<char>& _buffer, 
   {
     _format = AL_FORMAT_STEREO16;
 
-    // Force format to be mono (Useful for positional audio)
+
     _format = AL_FORMAT_MONO16;
     _freq *= 2;
   }
 
-  // Allocate enough space based on short (two chars) multipled by the number of
-  // channels and length of clip
   _buffer.resize(sizeof(*output) * channels * samples);
   memcpy(&_buffer.at(0), output, _buffer.size());
 
-  // Clean up the read data
+  // Clean up
   free(output);
 }

@@ -10,6 +10,9 @@
 class Resources;
 class Core;
 
+/**
+ * Parent class for individual parts of the program, such as a texture or a mesh
+ */
 class Resource : public std::sr1::noncopyable
 {
 public:

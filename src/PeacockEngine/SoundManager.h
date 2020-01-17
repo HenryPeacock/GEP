@@ -10,19 +10,22 @@
 
 class SoundSource;
 
+/**
+ * Class to manage the different sounds
+ */
 class SoundManager
 {
 public:
-	~SoundManager();
-	void Initialize();
+	~SoundManager(); ///< deconstructor
+	void Initialize(); ///< Function to set up the manager
 private:
 	friend class Core;
 
-	ALCdevice* m_device;
-	ALCcontext* m_context;
+	ALCdevice* m_device; ///< Sound device
+	ALCcontext* m_context; ///< Sound context
 
-	weak<Core> m_core;
-	std::list<shared<SoundSource>> m_sounds;
+	weak<Core> m_core; ///< Pointer to core
+	std::list<shared<SoundSource>> m_sounds; ///< List of sounds within the program
 };
 
 

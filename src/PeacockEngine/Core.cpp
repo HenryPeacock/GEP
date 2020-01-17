@@ -67,7 +67,7 @@ void Core::Run()
 		for (std::vector<shared<Entity>>::iterator it = m_entities.begin(); it != m_entities.end(); it++)
 		{
 			(*it)->Tick();
-			// Keyboard
+			// Keyboard, move things
 			if (m_keyboard->GetKeyPressed(SDLK_f))
 			{
 				std::cout << "Successfully Paid Respects" << std::endl;
@@ -90,7 +90,6 @@ void Core::Run()
 			(*it)->Display();
 		}
 
-		// Add further stuff
 		SDL_GL_SwapWindow(m_window);
 	}
 }

@@ -9,22 +9,24 @@
 
 class Core;
 
-// Add Keyboard Stuff
+/**
+ * Class containing functions to allow keyboard input
+ */
 class Keyboard
 {
 public:
-	void OnTick();
+	void OnTick(); ///< Called every tick to update keyboard systems
 
-	bool GetKey(SDL_Keycode _keycode);
-	bool GetKeyPressed(SDL_Keycode _keycode);
-	bool GetKeyReleased(SDL_Keycode _keycode);
+	bool GetKey(SDL_Keycode _keycode); ///< Gets the keys vector
+	bool GetKeyPressed(SDL_Keycode _keycode); ///< Gets the list of keys that have been pressed
+	bool GetKeyReleased(SDL_Keycode _keycode); ///< Gets the lsit of keys that have been released
 private:
 	friend class Core;
 
-	std::vector<SDL_Keycode> m_keys;
-	std::vector<SDL_Keycode> m_keysPressed;
-	std::vector<SDL_Keycode> m_keysReleased;
-	weak<Core> m_core;
+	std::vector<SDL_Keycode> m_keys; ///< vector of keys
+	std::vector<SDL_Keycode> m_keysPressed; ///< vector of keys that have been pressed
+	std::vector<SDL_Keycode> m_keysReleased; ///< vector of keys that have been released
+	weak<Core> m_core; ///< pointer to core
 };
 
 #endif
