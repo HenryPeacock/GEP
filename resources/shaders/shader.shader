@@ -22,13 +22,15 @@ void main()
 #endif
 #ifdef FRAGMENT
 
+
+uniform sampler2D in_Texture;
+
 varying vec3 v_Normal;
 varying vec2 v_TexCoord;
 
 void main()
 {
-  gl_FragColor = vec4(v_TexCoord, 0, 1);
-  gl_FragColor.z = v_Normal.x;
+  gl_FragColor = vec4(texture2D(in_Texture, v_TexCoord));
 }
 
 #endif

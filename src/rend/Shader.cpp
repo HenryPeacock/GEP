@@ -264,8 +264,8 @@ std::sr1::shared_ptr<VariableInfo> Shader::getVariableInfo(const std::string& na
 
     if(rtnType != type)
     {
-      throw Exception("The requested uniform [" + name + "] had the wrong type [" +
-        VariableInfo::convertType(rtn->type) + "]");
+      //throw Exception("The requested uniform [" + name + "] had the wrong type [" +
+      //  VariableInfo::convertType(rtn->type) + "]");
     }
   }
   else
@@ -275,7 +275,7 @@ std::sr1::shared_ptr<VariableInfo> Shader::getVariableInfo(const std::string& na
 
     if(rtn->loc == -1)
     {
-      throw Exception("The specified attribute [" + name + "] was not found in the shader");
+      //throw Exception("The specified attribute [" + name + "] was not found in the shader");
     }
 
     glGetActiveAttrib(id, rtn->loc, 0, &unusedA, &unusedB, &rtnType, NULL);

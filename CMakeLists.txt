@@ -12,6 +12,7 @@ add_library(rend
   src/rend/Buffer.h
   src/rend/Mesh.h
   src/rend/Util.h
+  src/rend/TextureAdapter.h
 
   src/rend/Exception.cpp
   src/rend/Context.cpp
@@ -48,6 +49,7 @@ add_library(PeacockEngine
 	src/PeacockEngine/SoundSource.h
 	src/PeacockEngine/SoundManager.h
 	src/PeacockEngine/stb_vorbis.h
+	src/PeacockEngine/stb_image.h
 
 	src/PeacockEngine/Entity.cpp
 	src/PeacockEngine/Core.cpp

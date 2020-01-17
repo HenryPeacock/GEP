@@ -32,6 +32,7 @@ struct Texture : public TextureAdapter, public std::sr1::noncopyable
 
 private:
   friend struct Context;
+  friend class Material;
 
   std::sr1::shared_ptr<Context> context;
   std::sr1::zero_initialized<GLuint> id;
