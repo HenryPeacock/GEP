@@ -1,5 +1,5 @@
 #include "Core.h"
-
+#include "Keyboard.h"
 #include "Resources.h"
 #include "Entity.h"
 #include "SoundManager.h"
@@ -35,6 +35,9 @@ shared<Core> Core::Initialize()
 	rtn->m_soundManager->Initialize();
 	rtn->m_soundManager->m_core = rtn;
 
+	rtn->m_keyboard = makesh<Keyboard>();
+	rtn->m_keyboard->m_core = rtn;
+
 	return rtn;
 }
 
@@ -68,6 +71,11 @@ void Core::Run()
 		for (std::vector<shared<Entity>>::iterator it = m_entities.begin(); it != m_entities.end(); it++)
 		{
 			(*it)->Tick();
+			// Keyboard
+			if (m_keyboard->GetKey(SDLK_f))
+			{
+				std::cout << "Hola" << std::endl;
+			}
 		}
 
 		glClearColor(0.39f, 0.58f, 0.93f, 1.0f);

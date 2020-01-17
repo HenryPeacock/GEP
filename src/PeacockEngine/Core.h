@@ -13,6 +13,7 @@ class Entity;
 class PMesh;
 class SoundManager;
 class Resources;
+class Keyboard;
 
 class Core
 {
@@ -36,6 +37,7 @@ private:
 	std::vector<shared<Entity>> m_entities;
 	shared<Resources> m_resources;
 	shared<SoundManager> m_soundManager;
+	shared<Keyboard> m_keyboard;
 	shared<rend::Context> m_context;
 };
 

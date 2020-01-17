@@ -155,9 +155,9 @@ void Shader::render()
   {
     throw Exception("No vertices were submitted for drawing");
   }
-
+  glActiveTexture(GL_TEXTURE0+2);
   glDrawArrays(GL_TRIANGLES, 0, vertices); pollForError();
-
+  glActiveTexture(GL_TEXTURE0);
   glUseProgram(0); pollForError();
 
   glDisable(GL_BLEND); pollForError();

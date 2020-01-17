@@ -12,8 +12,7 @@ varying vec2 v_TexCoord;
 
 void main()
 {
-  gl_Position = u_Projection *
-    u_Model * vec4(a_Position, 1);
+  gl_Position = u_Projection * u_Model * vec4(a_Position, 1);
 
   v_Normal = a_Normal;
   v_TexCoord = a_TexCoord;
