@@ -1,13 +1,19 @@
 #include "Keyboard.h"
+#include "Core.h"
 
 void Keyboard::OnTick()
 {
 	m_keysPressed.clear();
 	m_keysReleased.clear();
 
+	// Create SDL event and enter while loop
 	SDL_Event e = { 0 };
 	while (SDL_PollEvent(&e))
 	{
+		if (e.type == SDL_QUIT)
+		{
+			m_core.lock()->Exit();
+		}
 		// Add the keys released then remove from keys
 		if (e.type == SDL_KEYUP)
 		{

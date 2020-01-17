@@ -14,6 +14,7 @@ class PMesh;
 class SoundManager;
 class Resources;
 class Keyboard;
+class Camera;
 
 class Core
 {
@@ -23,6 +24,7 @@ public:
 
 	shared<Core> Initialize(); 
 	shared<Resources> GetResources() { return m_resources; }
+	void Exit() { m_running = false; }
 private:
 	friend class MeshRenderer;
 	friend class PMesh;
@@ -39,6 +41,8 @@ private:
 	shared<SoundManager> m_soundManager;
 	shared<Keyboard> m_keyboard;
 	shared<rend::Context> m_context;
+	shared<Camera> m_camera;
+	float m_move = -10.0f;
 };
 
 

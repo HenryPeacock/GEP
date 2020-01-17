@@ -9,7 +9,6 @@
 #include <string>
 
 
-
 class MeshRenderer : public Component
 {
 public:
@@ -24,6 +23,7 @@ private:
 	shared<PMesh> m_mesh;
 	shared<Material> m_material;
 	shared<rend::Shader> m_shader;
+
 
 };
 

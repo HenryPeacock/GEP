@@ -2,6 +2,7 @@
 #include "PMesh.h"
 #include "Material.h"
 #include <fstream>
+#include "Camera.h"
 
 void MeshRenderer::OnInitialize(std::string _path)
 {
@@ -39,7 +40,8 @@ void MeshRenderer::OnDisplay()
 
 	m_shader->setMesh(m_mesh->m_mesh);
 	m_shader->setUniform("u_Model", rend::mat4(1.0f));
-	m_shader->setUniform("u_Model", rend::translate(rend::mat4(1.0f), rend::vec3(0, 0, -10)));
+	m_shader->setUniform("u_Model", rend::translate(rend::mat4(1.0f), rend::vec3(0, 0, GetCore()->m_move)));
+	m_shader->setUniform("u_View", GetCore()->m_camera->GetView());
 	m_shader->setUniform("u_Projection", rend::perspective(rend::radians(45.0f), 1.0f, 0.1f, 100.0f));
 	m_shader->setUniform("in_Texture", m_material->TId);
 	m_shader->render();

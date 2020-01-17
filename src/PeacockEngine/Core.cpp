@@ -3,6 +3,7 @@
 #include "Resources.h"
 #include "Entity.h"
 #include "SoundManager.h"
+#include "Camera.h"
 
 
 shared<Core> Core::Initialize()
@@ -38,6 +39,9 @@ shared<Core> Core::Initialize()
 	rtn->m_keyboard = makesh<Keyboard>();
 	rtn->m_keyboard->m_core = rtn;
 
+	rtn->m_camera = makesh<Camera>();
+	rtn->m_camera->m_core = rtn;
+
 	return rtn;
 }
 
@@ -55,26 +59,26 @@ shared<Entity> Core::AddEntity()
 void Core::Run()
 {
 	m_running = true;
-	SDL_Event e = { 0 };
-
 	while (m_running)
 	{
-		while (SDL_PollEvent(&e) != 0)
-		{
-			if (e.type == SDL_QUIT)
-			{
-				m_running = false;
-			}
-		}
-
+		//
+		m_keyboard->OnTick();
 		// Basically the main game loop
 		for (std::vector<shared<Entity>>::iterator it = m_entities.begin(); it != m_entities.end(); it++)
 		{
 			(*it)->Tick();
 			// Keyboard
-			if (m_keyboard->GetKey(SDLK_f))
+			if (m_keyboard->GetKeyPressed(SDLK_f))
 			{
-				std::cout << "Hola" << std::endl;
+				std::cout << "Successfully Paid Respects" << std::endl;
+			}
+			if (m_keyboard->GetKeyPressed(SDLK_w))
+			{
+				m_move -= 1.0f;
+			}
+			if (m_keyboard->GetKeyPressed(SDLK_s))
+			{
+				m_move += 1.0f;
 			}
 		}
 

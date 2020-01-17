@@ -12,6 +12,6 @@
 #include "SoundManager.h"
 #include "PMesh.h"
 #include "Material.h"
-
+#include "Camera.h"
 
 #endif
